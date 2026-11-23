@@ -4,7 +4,7 @@
 
 **A team workspace for tasks, chat, analytics and a private AI assistant, deployed with a full production-style operations stack.**
 
-Built by a team of four at 42 for the `ft_transcendence` project.
+**PFE (final-year project)** at 1337, part of the 42 network. Built by a team of four for the `ft_transcendence` project.
 
 `Project Manager` · `DevOps` · `System Design` · `Frontend Design`
 
