@@ -54,31 +54,7 @@ Also included: Google and GitHub sign-in, custom roles and permissions, invitati
 
 Nginx is the only service published by the stack. It terminates TLS and routes traffic to private services on the Docker network.
 
-```mermaid
-flowchart LR
-    U([Browser]) -->|HTTPS and WSS| N[Nginx TLS gateway]
-    N --> F[Frontend]
-    N --> B[Fastify API and Socket.IO]
-    B --> P[(PostgreSQL)]
-    B --> O[Ollama local AI]
-
-    subgraph Logs
-        FB[Filebeat] --> L[Logstash] --> E[(Elasticsearch)] --> K[Kibana]
-    end
-    subgraph Metrics
-        PR[Prometheus] --> G[Grafana]
-        PR --> A[Alertmanager]
-    end
-    subgraph Recovery
-        BK[Scheduled backups] --> R[Restore drill]
-    end
-
-    N -. access logs .-> FB
-    B -. app logs .-> FB
-    B -. metrics .-> PR
-    P -. metrics .-> PR
-    P -. dumps .-> BK
-```
+<img src="assets/architecture.png" alt="Architecture: the browser connects over HTTPS and WSS to the Nginx TLS gateway, which routes to the frontend and the Fastify API with Socket.IO. The API uses PostgreSQL and a local Ollama model. Logs flow through Filebeat, Logstash, Elasticsearch and Kibana. Prometheus collects metrics for Grafana and Alertmanager. Scheduled PostgreSQL backups feed a restore drill." width="100%">
 
 Key decisions:
 
