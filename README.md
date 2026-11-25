@@ -14,7 +14,7 @@
 
 </div>
 
-> **Status:** in final validation before the 42 evaluation. A hosted demo is coming. The screenshots use a fictional demo team.
+> **Status:** in final validation before the 42 evaluation. The [standalone frontend demo](demo/) is ready to preview. The screenshots use a fictional demo team.
 
 ## My role
 
@@ -121,3 +121,9 @@ A warm cream palette with brown ink and terracotta accents, a matching dark them
 This is a showcase, so the application source isn't included. AI tools, including Claude Code, assisted with scripting, fixes, testing and documentation, and the team reviewed and tested the results.
 
 **Abdelmoula Nemili** · [GitHub](https://github.com/Abnemili)
+
+## Preview the demo
+
+Run `npx --yes serve -s demo` from the repository root and open the local address it prints. Choose **Open workspace** to explore six sample teams. Changes stay in your browser. Chat and the assistant use local demo data.
+
+For Vercel, select `demo` as the root directory and **Other** as the framework. The folder contains the production build and its SPA route configuration.

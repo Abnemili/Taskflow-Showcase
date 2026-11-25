@@ -1,0 +1,120 @@
+/* Temporary newdesigne demo. Loaded last; existing layouts and components stay intact. */
+:root,
+:root[data-theme=light] {
+  --navy: #0c2b4e;
+  --blue: #1a3d64;
+  --teal: #1d546c;
+  --ink: #131d28;
+  --ink2: #33485b;
+  --green: #1d546c;
+  --sage: #7396aa;
+  --lime: #d6e5ef;
+  --cream: #f4f4f4;
+  --paper: #ffffff;
+  --muted: #5d6d7c;
+  --line: #dce2e7;
+  --lilac: #d7e1ef;
+  --apricot: #e4eaf0;
+  --shadow: 0 26px 70px rgb(12 43 78 / 8%);
+  --demo-tint: #e8eff4;
+  --demo-glass: rgb(255 255 255 / 88%);
+  color: var(--ink);
+  background: var(--cream);
+  accent-color: var(--teal);
+}
+
+:root[data-theme=dark] {
+  --ink: #f4f4f4;
+  --ink2: #d6dfe8;
+  --green: #a7c9db;
+  --sage: #82a9bf;
+  --lime: #d6e5ef;
+  --cream: #10151d;
+  --paper: #192330;
+  --muted: #a6b4c3;
+  --line: #344454;
+  --shadow: 0 26px 70px rgb(0 0 0 / 28%);
+  --demo-tint: #223b50;
+  --demo-glass: rgb(25 35 48 / 88%);
+  color: var(--ink);
+  background: var(--cream);
+}
+
+::selection { background: #bad4e3; color: #0c2b4e; }
+:root body { background: var(--cream); color: var(--ink); }
+:root .sidebar { background: #0c2b4e; color: #f4f4f4; }
+:root .sidebar :is(.nav-group small,.sidebar-toggle,.sidebar-bottom>button) { color: #b4c7d9; }
+:root .sidebar :is(.nav-group a,.workspace-switch) { color: #d6e1ec; }
+:root .sidebar .nav-group a:hover { background: #ffffff10; color: #fff; }
+:root .sidebar .nav-group a.active {
+  background: #1a3d64; color: #fff; box-shadow: inset 3px 0 #8ebdd2;
+}
+:root .sidebar :is(.role-badge.role-hr,.workspace-logo,.profile-mini) {
+  background: #1d546c; color: #fff; border-color: #547c96;
+}
+:root .app-header {
+  background: var(--demo-glass);
+  border-color: var(--line);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+:root :is(.panel,.metric-tile,.space-card,.settings-card,.create-form,.auth-card,.chat-list,.chat-room) {
+  border-color: var(--line);
+}
+:root :is(.eyebrow,.brand-dot) { color: var(--green); }
+:root :is(.brand-icon,.space-icon,.workspace-avatar,.member-avatar,.empty-state-icon) {
+  background: var(--demo-tint); color: var(--green);
+}
+:root :is(.primary-button,.button.dark-button,.button.lime,.small-button,.create-button,.profile-links a,.profile-links button,.nav-cta,.live-chat .chat-composer button:not(:disabled),.live-chat .chat-create>button) {
+  background: #1d546c; border-color: #1d546c; color: #fff;
+}
+:root :is(.primary-button,.button.dark-button,.nav-cta):hover {
+  background: #1a3d64; border-color: #1a3d64; color: #fff;
+}
+:root :is(button,a,input,textarea,select):focus-visible { outline-color: #729db8; }
+:root :is(input,textarea,select):focus { border-color: #729db8; box-shadow: 0 0 0 3px #729db826; }
+:root :is(.auth-card input,.auth-card textarea,.profile-form input,.profile-form textarea) {
+  background: var(--paper); color: var(--ink); border-color: var(--line);
+}
+:root :is(.profile-form label,.settings-card label) { color: var(--ink2); }
+:root .live-chat .team-message.mine p {
+  background: #1a3d64; color: #fff; border-color: #1d546c;
+}
+:root .live-chat :is(.chat-conversation i,.chat-room-head>i) {
+  background: var(--demo-tint); color: var(--green);
+}
+:root .live-chat .chat-conversation.selected { background: var(--demo-tint); border-color: var(--line); }
+:root :is(.hero,.auth-art) {
+  background: radial-gradient(ellipse at 75% 30%,#1d546c 0%,transparent 52%),
+    linear-gradient(135deg,#0c2b4e,#10151d);
+  color: #f4f4f4;
+}
+:root .hero :is(h1 em,.eyebrow),:root .auth-art h1 em { color: #b8d7e6; }
+:root :is(.hero-lead,.auth-art>p) { color: #c6d5e1; }
+:root .glow-one { background: #1d546c; }
+:root .glow-two { background: #7396aa; }
+:root .feature-band { background: #1a3d64; color: #f4f4f4; }
+:root .profile-avatar { background: var(--demo-tint); color: var(--green); }
+:root :is(.final-cta,.site-footer) { background: #0c2b4e; color: #f4f4f4; }
+:root .final-cta h2 em { color: #b8d7e6; }
+:root :is(.final-cta p,.site-footer p,.footer-links a,.footer-links button) { color: #c6d5e1; }
+:root .pricing-card { background: #d6e5ef; color: #0c2b4e; }
+:root .pricing-card p { color: #33485b; }
+:root :is(.section h2 em,.feature-band h2 em) { color: var(--green); }
+:root .public-nav { color: #f4f4f4; }
+:root .public-nav :is(.brand-icon,.nav-cta) { background: #f4f4f4; color: #0c2b4e; }
+:root .public-nav:has(+ .auth-page),:root .public-nav:has(+ .legal-page) {
+  background: #0c2b4e; color: #f4f4f4;
+}
+:root .public-nav .brand-dot { color: #a7c9db; }
+:root :is(.intro-section,.bento-section,.workflow-section,.pricing-section,.auth-side) { background: var(--cream); }
+:root :is(.bento-card,.goal-card,.team-card,.create-aside) {
+  background: var(--demo-tint); color: var(--ink);
+}
+:root .sidebar-backdrop { background: #10151d99; backdrop-filter: blur(8px); }
+:root :is(.task-drawer-backdrop,.modal-backdrop) { background: #10151d99; backdrop-filter: blur(8px); }
+:root #toast { background: #0c2b4e; color: #f4f4f4; border-color: #547c96; }
+
+@media (prefers-reduced-transparency: reduce) {
+  :root .app-header { background: var(--paper); backdrop-filter: none; }
+}

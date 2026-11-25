@@ -1,0 +1,155 @@
+/* TaskFlow theme: warm cream paper, deep brown ink, terracotta accents.
+   Loaded last. Every colour in the other stylesheets is a token defined here,
+   so this file is the single source of the palette for the whole app. */
+
+/* ---------- Fonts (self-hosted, OFL) ---------- */
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/dm-sans-400.ttf) format('truetype')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/dm-sans-500.ttf) format('truetype')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/dm-sans-600.ttf) format('truetype')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/dm-sans-700.ttf) format('truetype')}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/manrope-600.ttf) format('truetype')}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/manrope-700.ttf) format('truetype')}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:800;font-display:swap;src:url(/fonts/manrope-800.ttf) format('truetype')}
+
+/* ---------- Tokens: light (cream) ---------- */
+:root{
+  --surface:#fdf7ef;        /* cards and panels */
+  --surface-2:#faebd6;      /* the cream page */
+  --surface-3:#f3dcc0;      /* hover, tracks, chips */
+  --line:#ead6bd;           /* hairlines */
+  --line-strong:#d9bfa0;    /* input borders, dividers */
+  --ink:#251d1a;            /* text and primary buttons */
+  --ink-2:#4a3c35;
+  --muted:#8a776b;
+  --inverse:#251d1a;
+  --on-inverse:#faebd6;
+  --accent:#c17b58;         /* terracotta */
+  --accent-strong:#a2593a;  /* terracotta text */
+  --accent-soft:#f6e1cf;
+  --accent-glow:rgb(193 123 88 / 22%);
+  --on-accent:#fffaf3;
+  --mark-ink:#251d1a;       /* the letter inside the logo tile */
+  --peach:#e89469;
+  --tan:#f6d3a0;
+  --rose:#eed0bf;
+  --steel:#3b758c;
+  --success:#5c7a3a;
+  --warning:#b26a00;
+  --danger:#b3412f;
+  --focus:0 0 0 3px rgb(193 123 88 / 35%);
+  --radius:14px;
+  --radius-sm:8px;
+  --shadow:0 1px 0 rgb(37 29 26 / 4%),0 10px 30px -12px rgb(37 29 26 / 18%);
+  --grid-line:rgb(37 29 26 / 5%);
+  --lattice:rgb(217 191 160 / 50%);
+
+  /* Earlier token names used across the stylesheets map onto the palette. */
+  --paper:var(--surface);
+  --cream:var(--surface-2);
+  --ink2:var(--ink-2);
+  --green:var(--accent);
+  --teal:var(--steel);
+  --navy:var(--ink);
+  --blue:var(--steel);
+  --sage:var(--accent);
+  --lime:var(--tan);
+  --lilac:var(--rose);
+  --apricot:var(--peach);
+  --border:var(--line);
+  --demo-tint:var(--surface-2);
+  --demo-glass:color-mix(in srgb,var(--surface) 90%,transparent);
+  color-scheme:light;
+}
+
+/* ---------- Base ---------- */
+html,body{background:var(--surface-2);color:var(--ink);font-family:'DM Sans','Plus Jakarta Sans',system-ui,sans-serif}
+body{background-image:linear-gradient(30deg,var(--grid-line) 1px,transparent 1px),linear-gradient(150deg,var(--grid-line) 1px,transparent 1px);background-size:46px 26px;background-attachment:fixed}
+h1,h2,h3,.page-head h1{font-family:'Manrope','DM Sans',sans-serif;font-weight:800;letter-spacing:-.03em;color:var(--ink)}
+::selection{background:color-mix(in srgb,var(--accent) 30%,transparent)}
+:focus-visible{outline:none;box-shadow:var(--focus)!important}
+/* Containers focused by script (tabindex=-1) are not controls, so they never show a ring. */
+[tabindex="-1"]:focus,[tabindex="-1"]:focus-visible{outline:none;box-shadow:none!important}
+a{color:inherit}
+h1 em,h2 em,h3 em,.lp-note{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-weight:400;letter-spacing:0;color:var(--accent-strong)}
+
+/* ---------- Buttons: dark brown primary, outlined secondary ---------- */
+.button,.primary-button,.dark-button,.nav-cta,button.button{background:var(--ink);color:var(--on-inverse);border:1px solid var(--ink);border-radius:var(--radius-sm);box-shadow:none;transition:transform .15s,background .15s}
+.button:hover,.primary-button:hover,.dark-button:hover,.nav-cta:hover{background:color-mix(in srgb,var(--ink) 86%,var(--accent))}
+.button:active,.primary-button:active,.dark-button:active{transform:translateY(1px)}
+.button:disabled,.primary-button:disabled{opacity:.5;cursor:not-allowed}
+.ghost-button,.button.ghost-button{background:transparent;color:var(--ink);border:1px solid var(--ink);box-shadow:none}
+.ghost-button:hover{background:var(--surface)}
+.row-danger,.button.row-danger,.ws-delete-button{background:transparent;color:var(--danger);border:1px solid color-mix(in srgb,var(--danger) 50%,transparent)}
+.row-danger:hover,.ws-delete-button:hover{background:color-mix(in srgb,var(--danger) 10%,transparent)}
+.icon-button{background:var(--surface);border:1px solid var(--line);color:var(--ink)}
+.icon-button:hover{border-color:var(--ink)}
+
+/* ---------- Inputs ---------- */
+input:not([type=checkbox]):not([type=radio]):not([type=file]),select,textarea{background:var(--surface);color:var(--ink);border:1px solid var(--line-strong);border-radius:var(--radius-sm)}
+input::placeholder,textarea::placeholder{color:var(--muted)}
+input:focus,select:focus,textarea:focus{border-color:var(--ink);box-shadow:var(--focus);outline:none}
+input[type=checkbox],input[type=radio]{accent-color:var(--ink)}
+
+/* ---------- App shell ---------- */
+.app-shell,.app-main,.app-content{background:transparent}
+.sidebar{background:var(--surface);color:var(--ink);border-right:1px solid var(--line)}
+.sidebar *{border-color:var(--line)}
+.sidebar a,.sidebar button:not(.button){color:var(--ink-2)}
+.sidebar a:hover,.sidebar button:not(.button):hover{background:var(--surface-2);color:var(--ink)}
+.sidebar a.active,.sidebar a[aria-current=page],.sidebar .is-active{background:var(--tan)!important;color:var(--ink)!important;box-shadow:none}
+.sidebar small,.sidebar .eyebrow{color:var(--muted)}
+.app-header{background:color-mix(in srgb,var(--surface-2) 85%,transparent);border-bottom:1px solid var(--line);backdrop-filter:blur(10px)}
+
+/* ---------- Cards ---------- */
+.panel,.metric-tile,.role-card,.status-card,.status-row,.settings-card,.msg-source{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+.panel:hover{border-color:var(--line-strong)}
+.eyebrow{color:var(--accent-strong);letter-spacing:.12em}
+.panel-empty{background:var(--surface-2);border-color:var(--line-strong);color:var(--muted)}
+.focus-panel{background:var(--rose);color:var(--ink);border:1px solid var(--line)}
+.focus-panel :is(h2,p,a){color:var(--ink)}
+.focus-panel .eyebrow{color:var(--accent-strong)}
+
+/* ---------- Status and charts ---------- */
+.status-chip{color:var(--success)}
+.status-chip i{background:var(--success);box-shadow:0 0 0 4px color-mix(in srgb,var(--success) 18%,transparent)}
+.status-chip.bad{color:var(--danger)}
+.status-chip.bad i{background:var(--danger);box-shadow:0 0 0 4px color-mix(in srgb,var(--danger) 18%,transparent)}
+.status-chip.wait{color:var(--muted)}
+.status-chip.wait i{background:var(--muted);box-shadow:none;opacity:.6}
+.pulse-dot{background:var(--success)}
+.pulse-dot.alert{background:var(--danger)}
+.chart-created{--series:var(--accent)}
+.chart-completed{--series:var(--steel)}
+.bar-fill{background:var(--accent)}
+.bar-fill.bar-open{background:var(--tan)}
+.donut-0{stroke:var(--line-strong);background:var(--line-strong)}
+.donut-1{stroke:var(--peach);background:var(--peach)}
+.donut-2{stroke:var(--tan);background:var(--tan)}
+.donut-3{stroke:var(--steel);background:var(--steel)}
+.donut-4{stroke:var(--muted);background:var(--muted)}
+
+/* ---------- Public pages (legal, status, footer) ---------- */
+.site-footer{background:transparent;color:var(--ink-2);border-top:1px solid var(--line)}
+.site-footer a{color:var(--ink-2)}
+.site-footer a:hover{color:var(--ink)}
+.legal-page{background:transparent}
+.legal-page,.legal-copy p,.legal-copy li{color:var(--ink-2)}
+
+#toast{background:var(--ink);color:var(--on-inverse);border-radius:var(--radius-sm)}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+
+/* Logo tile: the letter is always dark ink. */
+.brand-icon{color:var(--mark-ink)}
+.brand-icon svg circle{fill:var(--mark-ink)}
+
+/* Selects follow the theme instead of the browser's default control. */
+select{-webkit-appearance:none;appearance:none;padding-right:38px!important;cursor:pointer;font-weight:600;
+  background-color:var(--surface);
+  /* The chevron is the one thing older stylesheets must not reset with a background shorthand. */
+  background-image:linear-gradient(45deg,transparent 50%,var(--ink-2) 50%),linear-gradient(135deg,var(--ink-2) 50%,transparent 50%)!important;
+  background-position:calc(100% - 19px) 50%,calc(100% - 14px) 50%!important;background-size:5px 5px,5px 5px!important;background-repeat:no-repeat!important;
+  transition:border-color .15s,box-shadow .15s,background-color .15s}
+select:hover{border-color:var(--accent);background-color:var(--surface-2)}
+select:focus-visible{border-color:var(--accent)}
+select option,select optgroup{background:var(--surface);color:var(--ink)}
+select[multiple]{background-image:none!important;padding-right:12px!important}
